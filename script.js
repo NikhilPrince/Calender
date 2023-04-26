@@ -1,5 +1,4 @@
 
-
   var settings = {};
   dayjs.locale(settings);
 
@@ -27,12 +26,12 @@
     function timeColor() {
       $('.time-block').each(function() {
         var colorBlock = parseInt(this.id);
-        if (colorBlock == dailyTime) {
-          $(this).removeClass('past future').addClass('present');
-        } else if (colorBlock < dailyTime) {
-          $(this).removeClass('future present').addClass('past');
+        if (colorBlock === dailyTime) {
+          $(this).removeClass('past & future').addClass('present');
+        } else if (colorBlock > dailyTime) {
+          $(this).removeClass('future & present').addClass('past');
         } else {
-          $(this).removeClass('past present').addClass('future');
+          $(this).removeClass('past & present').addClass('future');
         }
       });
     }
@@ -57,5 +56,5 @@
     areaText();                
     timeColor();
     
-    setInterval(timeChange, 1000);
+    setInterval(timeChange);
   });
